@@ -3,7 +3,7 @@ package no.gruppe13.kollektiv.shared;
 // Typer transport vi støtter 
 
 
-enum Mode {
+public enum Mode {
     // Navn i koden            // Navn som kan vises i UI
     BUS("Buss"),
     TRAIN("Tog"),

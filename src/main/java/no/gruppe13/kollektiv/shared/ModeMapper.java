@@ -1,7 +1,7 @@
 package no.gruppe13.kollektiv.shared;
 
 
-class ModeMapper {
+ class ModeMapper {
     private ModeMapper() {}
 
     public static Mode fromApi(String raw) {

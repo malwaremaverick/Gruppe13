@@ -1,10 +1,12 @@
 package no.gruppe13.kollektiv.filter;
 
+import no.gruppe13.kollektiv.shared.Mode;
+import no.gruppe13.kollektiv.shared.ModeMapper;
+import no.gruppe13.kollektiv.filter.FilterSettings;
+import no.gruppe13.kollektiv.filter.FilterService;
 import no.gruppe13.kollektiv.domain.Departure;
 import no.gruppe13.kollektiv.domain.Journey;
 import no.gruppe13.kollektiv.domain.Leg;
-import no.gruppe13.kollektiv.shared.Mode;
-import no.gruppe13.kollektiv.shared.ModeMapper;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -17,13 +19,13 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * Her tester jeg F4 (filtrering av transportmidler):
- * - filterDepartures: at bare valgte transporttyper vises i avgangslista
- * - filterJourneys: at en reise bare er med hvis alle bein følger filteret
- * - fallback når filteret blir tomt 
- * - mapping fra API-strenger til vår Mode-enum
- *
- */
+* Her tester jeg F4 (filtrering av transportmidler):
+* - filterDepartures: at bare valgte transporttyper vises i avgangslista
+* - filterJourneys: at en reise bare er med hvis alle bein følger filteret
+* - fallback når filteret blir tomt 
+* - mapping fra API-strenger til vår Mode-enum
+*
+*/
 class FilterServiceTest {
 
 
@@ -126,7 +128,7 @@ class FilterServiceTest {
         assertEquals(Mode.BUS,   ModeMapper.fromApi("bus"));
         assertEquals(Mode.TRAIN, ModeMapper.fromApi("rail"));   
         assertEquals(Mode.TRAIN, ModeMapper.fromApi("train"));
-        assertEquals(Mode.TRAM,  ModeMapper.fromApi("TrAm"));   t
+        assertEquals(Mode.TRAM,  ModeMapper.fromApi("TrAm"));   
         assertEquals(Mode.METRO, ModeMapper.fromApi("subway")); 
         assertEquals(Mode.METRO, ModeMapper.fromApi("metro"));
         assertEquals(Mode.FERRY, ModeMapper.fromApi("boat"));   
@@ -137,7 +139,7 @@ class FilterServiceTest {
         assertEquals(Mode.OTHER, ModeMapper.fromApi(null));     // null → OTHER
     }
 
-\    // ---- PERSISTENS ----
+    // ---- PERSISTENS ----
 
     @Test
     @DisplayName("PreferencesStore: lagre og lese valgte modes (roundtrip)")

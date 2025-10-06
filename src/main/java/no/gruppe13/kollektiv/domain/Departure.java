@@ -1,5 +1,6 @@
 package no.gruppe13.kollektiv.domain;
 
+
 import no.gruppe13.kollektiv.shared.Mode;
 import java.time.LocalDateTime;
 
